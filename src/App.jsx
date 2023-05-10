@@ -1,7 +1,7 @@
 import Search from "./components/search/Search";
-import Overview from "./components/overview/Overview";
+import WeatherForecast from "./components/weatherForecast/WeatherForecast";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [locationData, setLocationData] = useState("");
@@ -10,12 +10,26 @@ function App() {
     setLocationData(searchData);
   };
 
+  useEffect(() => {
+    console.log(locationData);
+  }, [locationData]);
+
+  const forecastData = 
+    {
+      date: 'May 11, 2023',
+      temperature: 25,
+      description: 'Sunny',
+      iconUrl: 'https://cdn-icons-png.flaticon.com/512/169/169367.png',
+    }
+
   return (
     <>
+    <div className="background">
       <div className="container">
         <Search onSearchChange={handleOnSearchChange} />
-        <Overview name={locationData.label} coords={locationData.value} />
+        {locationData && <WeatherForecast location={locationData.label} date={forecastData.date} temperature={forecastData.temperature} description={forecastData.description} iconUrl={forecastData.iconUrl}/>}
       </div>
+    </div>
     </>
   );
 }
