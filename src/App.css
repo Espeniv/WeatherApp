@@ -9,3 +9,9 @@
     padding: 10%;
     padding-top: 3%;
 }
+
+.upcoming-forecast {
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+}

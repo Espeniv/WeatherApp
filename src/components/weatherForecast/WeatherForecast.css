@@ -1,6 +1,6 @@
 .weather-forecast {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -9,14 +9,17 @@
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: auto;
     margin-bottom: 30px;
     margin-top: 30px;
     backdrop-filter: blur(10px);
+    width: 40%;
 }
 
 .location {
     font-size: 30px;
     font-weight: bold;
+    margin-top: 5px;
     margin-bottom: 10px;
     color: #ffffff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -40,14 +43,15 @@
 .description {
     font-size: 16px;
     margin-top: 5px;
+    margin-bottom: 5px;
     color: #ffffff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 img {
-    width: 60px;
-    height: 60px;
-    margin-top: 20px;
+    width: 30%;
+    height: 30%;
+    margin-right: 50px;
 }
 
 .weather-forecast {
