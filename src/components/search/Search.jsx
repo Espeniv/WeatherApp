@@ -36,52 +36,50 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(searchData);
   };
 
-
   //Only inlined styles are supported by react-select-async-paginate?
   const asyncPaginateStyles = {
     control: (provided) => ({
       ...provided,
-      display: 'flex',
-      alignItems: 'center',
-      border: 'none',
-      borderRadius: '10px',
-      padding: '8px',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
-      backdropFilter: 'blur(10px)',
-      fontSize: '16px',
-      color: '#fff',
-      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-      '&:hover': {
-        borderColor: 'transparent',
-      }
+      display: "flex",
+      alignItems: "center",
+      border: "none",
+      borderRadius: "10px",
+      padding: "8px",
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
+      backdropFilter: "blur(10px)",
+      fontSize: "16px",
+      color: "#fff",
+      boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
+      "&:hover": {
+        borderColor: "transparent",
+      },
     }),
     menu: (provided) => ({
       ...provided,
-      maxHeight: '200px',
-      overflowY: 'auto',
-      border: 'none',
-      borderTop: 'none',
-      borderRadius: '0 0 4px 4px',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
-      backdropFilter: 'blur(10px)',
+      maxHeight: "200px",
+      overflowY: "auto",
+      border: "none",
+      borderTop: "none",
+      borderRadius: "0 0 4px 4px",
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
+      backdropFilter: "blur(10px)",
     }),
     option: (provided, { isSelected }) => ({
       ...provided,
-      padding: '8px',
-      cursor: 'pointer',
-      transition: 'background-color 0.2s ease-in-out',
-      color: isSelected ? '#333' : '#000',
-      backgroundColor: isSelected ? '#ccc' : 'initial',
-      '&:hover': {
-        backgroundColor: isSelected ? '#ccc' : 'rgba(255, 255, 255, 0.3)',
+      padding: "8px",
+      cursor: "pointer",
+      transition: "background-color 0.2s ease-in-out",
+      color: isSelected ? "#333" : "#000",
+      backgroundColor: isSelected ? "#ccc" : "initial",
+      "&:hover": {
+        backgroundColor: isSelected ? "#ccc" : "rgba(255, 255, 255, 0.3)",
       },
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: '#333',
+      color: "#333",
     }),
   };
-  
 
   return (
     <AsyncPaginate
