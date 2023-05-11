@@ -18,11 +18,6 @@ function App() {
   };
 
   useEffect(() => {
-    fetchWeatherNow(), [locationData];
-  });
-
-  const fetchWeatherNow = () => {
-    console.log("doing a fetch");
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.lat}&lon=${locationData.lon}&appid=a2e7a4db0b6d7af071db8e1f1adaa70c`
     )
@@ -35,7 +30,7 @@ function App() {
         });
       })
       .catch((error) => console.log(error));
-  };
+  }, [locationData]);
 
   const fetchUpcomingWeather = () => {
     fetch(
@@ -45,22 +40,6 @@ function App() {
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
   };
-
-  /*currently for testing
-  const forecastData = [
-    {
-      date: "May 11, 2023",
-      temperature: 25,
-      description: "Sunny",
-      icon: sun,
-    },
-    {
-      date: "May 12, 2023",
-      temperature: 15,
-      description: "Rainy",
-      icon: rain,
-    },
-  ];*/
 
   const getTodaysDate = () => {
     const today = new Date();
