@@ -1,4 +1,5 @@
 body {
   font-family: "Roboto", Arial !important;
   margin: 0;
+  backdrop-filter: blur(5px);
 }

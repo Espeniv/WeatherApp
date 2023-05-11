@@ -2,12 +2,13 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import { useState } from "react";
 import "./Search.css";
 
+// eslint-disable-next-line react/prop-types
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState("");
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=10000&namePrefix=${inputValue}`,
+      `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=100000&namePrefix=${inputValue}`,
       {
         method: "GET",
         headers: {
@@ -22,7 +23,8 @@ const Search = ({ onSearchChange }) => {
         return {
           options: data.data.map((city) => {
             return {
-              value: `${city.latitude} ${city.longitude}`,
+              lat: `${city.latitude}`,
+              lon: `${city.longitude}`,
               label: `${city.name}, ${city.countryCode}`,
             };
           }),
