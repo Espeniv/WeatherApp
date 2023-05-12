@@ -37,3 +37,10 @@
 .asyncPaginate__option.glassmorphism--is-selected:hover {
     background-color: rgba(0, 123, 255, 0.7) !important;
 }
+
+.searchContainer {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

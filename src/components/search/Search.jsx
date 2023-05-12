@@ -44,7 +44,6 @@ const Search = ({ onSearchChange }) => {
       ...provided,
       display: "flex",
       alignItems: "center",
-      border: "none",
       borderRadius: "10px",
       padding: "8px",
       backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -55,6 +54,7 @@ const Search = ({ onSearchChange }) => {
       "&:hover": {
         borderColor: "transparent",
       },
+      border: "1px solid rgba(255, 255, 255, 0.3)",
     }),
     menu: (provided) => ({
       ...provided,
@@ -84,14 +84,16 @@ const Search = ({ onSearchChange }) => {
   };
 
   return (
-    <AsyncPaginate
-      placeholder="Search for city"
-      debounceTimeout={600}
-      value={search}
-      onChange={handleOnChange}
-      loadOptions={loadOptions}
-      styles={asyncPaginateStyles}
-    />
+    <div className="searchContainer">
+      <AsyncPaginate
+        placeholder="Search for city"
+        debounceTimeout={600}
+        value={search}
+        onChange={handleOnChange}
+        loadOptions={loadOptions}
+        styles={asyncPaginateStyles}
+      />
+    </div>
   );
 };
 

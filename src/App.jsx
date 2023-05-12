@@ -36,7 +36,6 @@ function App() {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log("data", data.list[0].main.temp);
           const forecast = [];
           for (let i = 8; i <= 40; i += 8) {
             forecast.push({
@@ -50,12 +49,16 @@ function App() {
     }
   }, [locationData]);
 
-  const getTodaysDate = () => {
+  const getDateDay = () => {
+    const today = new Date();
+    const day = String(today.getDate());
+    return day;
+  };
+
+  const getDateMonth = () => {
     const today = new Date();
     const month = String(today.getMonth() + 1);
-    const day = String(today.getDate());
-    const todaysDate = `${day}/${month}`;
-    return todaysDate;
+    return month;
   };
 
   const kelvinToCelsius = (kelvin) => {
@@ -63,11 +66,11 @@ function App() {
     return celsius;
   };
 
-  const getIcon = () => {
-    if (weatherNow.description.includes("rain")) {
+  const getIcon = (data) => {
+    if (data.description.includes("rain")) {
       return rain;
     }
-    if (weatherNow.description.includes("clear")) {
+    if (data.description.includes("clear")) {
       return sun;
     } else {
       return cloud;
@@ -78,26 +81,29 @@ function App() {
     <div className="background">
       <div className="container">
         <Search onSearchChange={handleOnSearchChange} />
+        <h1 className="location-name">
+          {locationData ? locationData.label : "Select a location"}
+        </h1>
         {weatherNow && (
           <WeatherForecast
-            location={locationData.label}
-            date={getTodaysDate()}
+            date={`${getDateDay()}/${getDateMonth()}`}
             temperature={Math.round(kelvinToCelsius(weatherNow.temp))}
             description={weatherNow.description}
-            icon={getIcon()}
+            icon={getIcon(weatherNow)}
           />
         )}
         {weatherForecast && (
           <div className="upcoming-forecast">
-            <h1 className="upcoming-forecast-title">Upcoming Forecast</h1>
+            <h1 className="upcoming-forecast-title">Forecast</h1>
             {weatherForecast.map((forecastData, index) => (
               <UpcomingForecast
                 key={index}
-                location={locationData.label}
-                date={forecastData.date}
-                temperature={forecastData.temperature}
+                date={`${
+                  parseInt(getDateDay()) + (index + 1)
+                }/${getDateMonth()}`}
+                temperature={Math.round(kelvinToCelsius(forecastData.temp))}
                 description={forecastData.description}
-                icon={forecastData.icon}
+                icon={getIcon(forecastData)}
               />
             ))}
           </div>
