@@ -10,7 +10,7 @@ import cloud from "./assets/cloud.png";
 function App() {
   const [locationData, setLocationData] = useState("");
   const [weatherNow, setWeatherNow] = useState();
-  const [upcomingWeather, setUpcomingWeather] = useState();
+  const [weatherForecast, setWeatherForecast] = useState();
 
   const handleOnSearchChange = (searchData) => {
     setLocationData(searchData);
@@ -18,28 +18,37 @@ function App() {
   };
 
   useEffect(() => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.lat}&lon=${locationData.lon}&appid=a2e7a4db0b6d7af071db8e1f1adaa70c`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setWeatherNow({
-          temp: data.main.temp,
-          description: data.weather[0].description,
-        });
-      })
-      .catch((error) => console.log(error));
-  }, [locationData]);
+    if (locationData != "") {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.lat}&lon=${locationData.lon}&appid=a2e7a4db0b6d7af071db8e1f1adaa70c`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setWeatherNow({
+            temp: data.main.temp,
+            description: data.weather[0].description,
+          });
+        })
+        .catch((error) => console.log(error));
 
-  const fetchUpcomingWeather = () => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=10&lon=10&appid=a2e7a4db0b6d7af071db8e1f1adaa70c`
-    )
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
-  };
+      fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${locationData.lat}&lon=${locationData.lon}&appid=a2e7a4db0b6d7af071db8e1f1adaa70c`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("data", data.list[0].main.temp);
+          const forecast = [];
+          for (let i = 8; i <= 40; i += 8) {
+            forecast.push({
+              temp: data.list[i - 1].main.temp,
+              description: data.list[i - 1].weather[0].description,
+            });
+          }
+          setWeatherForecast(forecast);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [locationData]);
 
   const getTodaysDate = () => {
     const today = new Date();
@@ -78,10 +87,10 @@ function App() {
             icon={getIcon()}
           />
         )}
-        {upcomingWeather && (
+        {weatherForecast && (
           <div className="upcoming-forecast">
-            <h1>Upcoming Forecast</h1>
-            {upcomingWeather.map((forecastData, index) => (
+            <h1 className="upcoming-forecast-title">Upcoming Forecast</h1>
+            {weatherForecast.map((forecastData, index) => (
               <UpcomingForecast
                 key={index}
                 location={locationData.label}
