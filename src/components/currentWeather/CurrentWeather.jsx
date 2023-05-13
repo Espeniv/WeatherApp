@@ -1,8 +1,8 @@
-import "./WeatherForecast.css";
+import "./CurrentWeather.css";
 
-const WeatherForecast = ({ date, temperature, description, icon }) => {
+const CurrentWeather = ({ date, temperature, description, icon }) => {
   return (
-    <div className="weather-forecast">
+    <div className="current-weather">
       <div className="infoContainer">
         <h1 className="today-text">{"Today"}</h1>
         <div className="date">{date}</div>
@@ -14,4 +14,4 @@ const WeatherForecast = ({ date, temperature, description, icon }) => {
   );
 };
 
-export default WeatherForecast;
+export default CurrentWeather;
