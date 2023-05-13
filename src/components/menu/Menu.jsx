@@ -17,18 +17,18 @@ const Menu = () => {
       ></div>
       <div className={`menu-options ${menuVisible ? "fade-in" : ""}`}>
         <NavLink
+          onClick={toggleMenu}
           to="/"
-          activeClassName="active-menu-option"
+          activeclassname="active-menu-option"
           className="menu-option"
-          exact
         >
           <h3>Search</h3>
         </NavLink>
         <NavLink
+          onClick={toggleMenu}
           to="/favorites"
-          activeClassName="active-menu-option"
+          activeclassname="active-menu-option"
           className="menu-option"
-          exact
         >
           <h3>Favorites</h3>
         </NavLink>

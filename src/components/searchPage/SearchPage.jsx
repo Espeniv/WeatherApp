@@ -14,7 +14,6 @@ const SearchPage = () => {
 
   const handleOnSearchChange = (searchData) => {
     setLocationData(searchData);
-    console.log(locationData);
   };
 
   useEffect(() => {
@@ -80,16 +79,16 @@ const SearchPage = () => {
   return (
     <div className="container">
       <Search onSearchChange={handleOnSearchChange} />
-      <h1 className="location-name">
-        {locationData ? locationData.label : "Select a location"}
-      </h1>
-      {weatherNow && (
+      {weatherNow ? (
         <CurrentWeather
+          locationData={locationData}
           date={`${getDateDay()}/${getDateMonth()}`}
           temperature={Math.round(kelvinToCelsius(weatherNow.temp))}
           description={weatherNow.description}
           icon={getIcon(weatherNow)}
         />
+      ) : (
+        <h1 className="welcome-text">Start searching for a location</h1>
       )}
       {weatherForecast && (
         <div className="upcoming-forecast">

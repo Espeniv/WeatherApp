@@ -1,0 +1,15 @@
+.favorite-star {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .favorite-star img {
+    width: 100%;
+    height: 100%;
+    margin-left: 15px;
+    filter: grayscale(100%);
+  }
+
+  .favorite-star.activated img {
+    filter: none;
+  } 
