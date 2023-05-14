@@ -1,6 +1,6 @@
 import Menu from "./components/menu/Menu";
 import SearchPage from "./components/searchPage/SearchPage";
-import FavoritesPage from "./components/favorites/FavoritesPage";
+import FavoritesPage from "./components/favoritesPage/FavoritesPage";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 

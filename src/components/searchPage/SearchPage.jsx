@@ -2,9 +2,12 @@ import Search from "../search/Search";
 import CurrentWeather from "../currentWeather/CurrentWeather";
 import { useEffect, useState } from "react";
 import UpcomingForecast from "../upcomingForecast/UpcomingForecast";
-import rain from "../../assets/rain.png";
-import sun from "../../assets/sun.png";
-import cloud from "../../assets/cloud.png";
+import {
+  getDateDay,
+  getDateMonth,
+  getIcon,
+  kelvinToCelsius,
+} from "../../utils/utils.js";
 import "./SearchPage.css";
 
 const SearchPage = () => {
@@ -47,34 +50,6 @@ const SearchPage = () => {
         .catch((error) => console.log(error));
     }
   }, [locationData]);
-
-  const getDateDay = () => {
-    const today = new Date();
-    const day = String(today.getDate());
-    return day;
-  };
-
-  const getDateMonth = () => {
-    const today = new Date();
-    const month = String(today.getMonth() + 1);
-    return month;
-  };
-
-  const kelvinToCelsius = (kelvin) => {
-    const celsius = kelvin - 273.15;
-    return celsius;
-  };
-
-  const getIcon = (data) => {
-    if (data.description.includes("rain")) {
-      return rain;
-    }
-    if (data.description.includes("clear")) {
-      return sun;
-    } else {
-      return cloud;
-    }
-  };
 
   return (
     <div className="container">

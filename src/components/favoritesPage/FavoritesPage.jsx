@@ -10,17 +10,19 @@ const FavoritesPage = () => {
   return (
     <>
       <div className="favorites-container">
-        <h1 className="favorites-title">
-          {favoriteLocations
-            ? "Favorites"
-            : "Click the star on any location to favorite it"}
-        </h1>
+        <h1 className="favorites-title">Favorites</h1>
       </div>
-      {favoriteLocations.map((location, index) => (
-        <div key={index} className="favorite-location">
-          <CurrentWeather locationData={{ label: location }} />
-        </div>
-      ))}
+      {favoriteLocations.length != 0 ? (
+        favoriteLocations.map((location, index) => (
+          <div key={index} className="favorite-location">
+            <CurrentWeather locationData={{ label: location }} />
+          </div>
+        ))
+      ) : (
+        <h1 className="welcome-text-favorites">
+          Click the star on any location to favorite it
+        </h1>
+      )}
     </>
   );
 };
