@@ -23,7 +23,7 @@ export const getIcon = (data) => {
   if (data.description.includes("rain")) {
     return rain;
   }
-  if (data.description.includes("clear")) {
+  if (data.description.includes("few" || "clear")) {
     return sun;
   } else {
     return cloud;
