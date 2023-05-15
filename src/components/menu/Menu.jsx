@@ -17,7 +17,7 @@ const Menu = () => {
       ></div>
       <div className={`menu-options ${menuVisible ? "fade-in" : ""}`}>
         <NavLink
-          /*onClick={toggleMenu} */
+          onClick={toggleMenu}
           to="/"
           activeclassname="active-menu-option"
           className="menu-option"
@@ -25,7 +25,7 @@ const Menu = () => {
           <h3>Search</h3>
         </NavLink>
         <NavLink
-          /*onClick={toggleMenu}*/
+          onClick={toggleMenu}
           to="/favorites"
           activeclassname="active-menu-option"
           className="menu-option"

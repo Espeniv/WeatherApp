@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import FavoriteStar from "../favoriteStar/FavoriteStar";
 import {
   getDateDay,
@@ -67,17 +68,25 @@ const CurrentWeather = ({
         )}
       </h1>
       {weatherNow && (
-        <div className="current-weather">
-          <div className="infoContainer">
-            <h1 className="today-text">{"Today"}</h1>
-            <div className="date">{`${getDateDay()}/${getDateMonth()}`}</div>
-            <div className="temperature">
-              {Math.round(kelvinToCelsius(weatherNow.temp))}&deg;C
+        <Link
+          style={{
+            textDecoration: "none",
+          }}
+          to="/"
+          state={{ locationData: locationData }}
+        >
+          <div className="current-weather">
+            <div className="infoContainer">
+              <h1 className="today-text">{"Today"}</h1>
+              <div className="date">{`${getDateDay()}/${getDateMonth()}`}</div>
+              <div className="temperature">
+                {Math.round(kelvinToCelsius(weatherNow.temp))}&deg;C
+              </div>
+              <div className="description">{weatherNow.description}</div>
             </div>
-            <div className="description">{weatherNow.description}</div>
+            <img src={getIcon(weatherNow)} alt="Weather Icon" />
           </div>
-          <img src={getIcon(weatherNow)} alt="Weather Icon" />
-        </div>
+        </Link>
       )}
     </>
   );
