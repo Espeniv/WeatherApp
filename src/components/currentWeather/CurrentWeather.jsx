@@ -1,21 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FavoriteStar from "../favoriteStar/FavoriteStar";
+import {
+  getDateDay,
+  getDateMonth,
+  getIcon,
+  kelvinToCelsius,
+} from "../../utils/utils.js";
 import "./CurrentWeather.css";
 
 const CurrentWeather = ({
   locationData,
-  date,
-  temperature,
-  description,
-  icon,
+  favoriteLocations,
+  setFavoriteLocations,
 }) => {
-  const [favoriteLocations, setFavoriteLocations] = useState(
-    () => JSON.parse(localStorage.getItem("favoriteLocations")) || []
-  );
+  const [weatherNow, setWeatherNow] = useState();
+
+  useEffect(() => {
+    if (locationData != "") {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.lat}&lon=${locationData.lon}&appid=a2e7a4db0b6d7af071db8e1f1adaa70c`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setWeatherNow({
+            temp: data.main.temp,
+            description: data.weather[0].description,
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [locationData]);
 
   const handleOnStarClick = () => {
-    if (!favoriteLocations.includes(locationData.label)) {
-      const updatedLocations = [...favoriteLocations, locationData.label];
+    if (!favoriteLocations.includes(locationData)) {
+      const updatedLocations = [...favoriteLocations, locationData];
       setFavoriteLocations(updatedLocations);
       localStorage.setItem(
         "favoriteLocations",
@@ -23,7 +41,7 @@ const CurrentWeather = ({
       );
     } else {
       const updatedLocations = favoriteLocations.filter(
-        (location) => location !== locationData.label
+        (location) => location !== locationData
       );
       setFavoriteLocations(updatedLocations);
       localStorage.setItem(
@@ -48,15 +66,19 @@ const CurrentWeather = ({
           "Select a location"
         )}
       </h1>
-      <div className="current-weather">
-        <div className="infoContainer">
-          <h1 className="today-text">{"Today"}</h1>
-          <div className="date">{date}</div>
-          <div className="temperature">{temperature}&deg;C</div>
-          <div className="description">{description}</div>
+      {weatherNow && (
+        <div className="current-weather">
+          <div className="infoContainer">
+            <h1 className="today-text">{"Today"}</h1>
+            <div className="date">{`${getDateDay()}/${getDateMonth()}`}</div>
+            <div className="temperature">
+              {Math.round(kelvinToCelsius(weatherNow.temp))}&deg;C
+            </div>
+            <div className="description">{weatherNow.description}</div>
+          </div>
+          <img src={getIcon(weatherNow)} alt="Weather Icon" />
         </div>
-        <img src={icon} alt="Weather Icon" />
-      </div>
+      )}
     </>
   );
 };

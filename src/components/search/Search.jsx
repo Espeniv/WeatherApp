@@ -8,7 +8,7 @@ const Search = ({ onSearchChange }) => {
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=100000&namePrefix=${inputValue}`,
+      `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=10000&namePrefix=${inputValue}`,
       {
         method: "GET",
         headers: {

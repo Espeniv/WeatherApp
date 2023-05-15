@@ -10,6 +10,12 @@
     filter: grayscale(100%);
   }
 
+  .favorite-star:hover img {
+    filter: none;
+    cursor:pointer; 
+  }
+
   .favorite-star.activated img {
     filter: none;
   } 
+  

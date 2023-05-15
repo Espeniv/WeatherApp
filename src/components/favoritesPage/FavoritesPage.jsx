@@ -1,21 +1,20 @@
-import { useState } from "react";
 import "./FavoritesPage.css";
 import CurrentWeather from "../currentWeather/CurrentWeather";
 
-const FavoritesPage = () => {
-  const [favoriteLocations, setFavoriteLocations] = useState(
-    JSON.parse(localStorage.getItem("favoriteLocations")) || []
-  );
-  console.log("favoriteLocations", favoriteLocations);
+const FavoritesPage = ({ favoriteLocations, setFavoriteLocations }) => {
   return (
     <>
       <div className="favorites-container">
         <h1 className="favorites-title">Favorites</h1>
       </div>
       {favoriteLocations.length != 0 ? (
-        favoriteLocations.map((location, index) => (
+        favoriteLocations.map((locationData, index) => (
           <div key={index} className="favorite-location">
-            <CurrentWeather locationData={{ label: location }} />
+            <CurrentWeather
+              locationData={locationData}
+              favoriteLocations={favoriteLocations}
+              setFavoriteLocations={setFavoriteLocations}
+            />
           </div>
         ))
       ) : (

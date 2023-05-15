@@ -60,7 +60,7 @@
     transition: opacity 0.3s ease;
     z-index: 998; /* Ensure menu options are displayed below the menu */
     color: white;
-    
+  
   }
   
   .menu-option {
