@@ -19,11 +19,13 @@ const SearchPage = ({ favoriteLocations, setFavoriteLocations }) => {
     <div className="container">
       <Search onSearchChange={handleOnSearchChange} />
       {locationData ? (
-        <CurrentWeather
-          locationData={locationData}
-          setFavoriteLocations={setFavoriteLocations}
-          favoriteLocations={favoriteLocations}
-        />
+        <div className="current-container">
+          <CurrentWeather
+            locationData={locationData}
+            setFavoriteLocations={setFavoriteLocations}
+            favoriteLocations={favoriteLocations}
+          />
+        </div>
       ) : (
         <h1 className="welcome-text">Start searching for a location</h1>
       )}

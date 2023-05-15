@@ -30,3 +30,8 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     margin-bottom: 30px;
 }
+
+.current-container {
+    width: 40%;
+    margin: 0 auto;
+  }

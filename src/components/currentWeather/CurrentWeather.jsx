@@ -77,7 +77,7 @@ const CurrentWeather = ({
         >
           <div className="current-weather">
             <div className="infoContainer">
-              <h1 className="today-text">{"Today"}</h1>
+              <h1 className="today-text">{"Right now"}</h1>
               <div className="date">{`${getDateDay()}/${getDateMonth()}`}</div>
               <div className="temperature">
                 {Math.round(kelvinToCelsius(weatherNow.temp))}&deg;C

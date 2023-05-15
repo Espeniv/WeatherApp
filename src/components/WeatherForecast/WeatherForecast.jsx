@@ -18,7 +18,15 @@ const WeatherForecast = ({ locationData }) => {
         .then((res) => res.json())
         .then((data) => {
           const forecast = [];
-          for (let i = 8; i <= 40; i += 8) {
+          let count = 0;
+          for (let timestamp of data.list) {
+            if (!timestamp.dt_txt.includes("15:00:00")) {
+              count++;
+            } else {
+              break;
+            }
+          }
+          for (let i = count; i <= 40; i += 8) {
             forecast.push({
               temp: data.list[i - 1].main.temp,
               description: data.list[i - 1].weather[0].description,
