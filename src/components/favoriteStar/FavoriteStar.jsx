@@ -3,13 +3,15 @@ import star from "../../assets/star.png";
 import "./FavoriteStar.css";
 
 const FavoriteStar = ({ locationData, onStarClick }) => {
-  const [activated, setActivated] = useState(false);
+  const [activated, setActivated] = useState(
+    localStorage.getItem("favoriteLocations")?.includes(locationData.label) ||
+      false
+  );
 
   useEffect(() => {
     setActivated(
-      localStorage
-        .getItem("favoritedLocations")
-        ?.includes(locationData.label) || false
+      localStorage.getItem("favoriteLocations")?.includes(locationData.label) ||
+        false
     );
   }, [locationData.label]);
 
