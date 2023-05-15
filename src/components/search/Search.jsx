@@ -73,14 +73,18 @@ const Search = ({ onSearchChange }) => {
       cursor: "pointer",
       transition: "background-color 0.2s ease-in-out",
       color: isSelected ? "#333" : "#000",
-      backgroundColor: isSelected ? "#ccc" : "initial",
+      backgroundColor: "initial",
       "&:hover": {
         backgroundColor: isSelected ? "#ccc" : "rgba(255, 255, 255, 0.3)",
       },
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: "#333",
+      color: "#fff",
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: "#fff",
     }),
   };
 

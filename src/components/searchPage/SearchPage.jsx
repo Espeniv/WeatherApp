@@ -2,7 +2,7 @@ import Search from "../search/Search";
 import CurrentWeather from "../currentWeather/CurrentWeather";
 import { useState } from "react";
 import "./SearchPage.css";
-import WeatherForecast from "../upcomingForecast/WeatherForecast";
+import WeatherForecast from "../WeatherForecast/WeatherForecast";
 
 const SearchPage = ({ favoriteLocations, setFavoriteLocations }) => {
   const [locationData, setLocationData] = useState("");
