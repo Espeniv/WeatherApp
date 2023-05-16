@@ -19,3 +19,9 @@
     filter: none;
   } 
   
+  @media screen and (max-width: 768px) {
+    .favorite-star {
+      width: 20px;
+      height: 20px;
+    }
+  }

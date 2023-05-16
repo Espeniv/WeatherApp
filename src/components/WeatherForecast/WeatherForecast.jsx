@@ -26,6 +26,7 @@ const WeatherForecast = ({ locationData }) => {
               break;
             }
           }
+          count == 0 && (count = 1);
           for (let i = count; i <= 40; i += 8) {
             forecast.push({
               temp: data.list[i - 1].main.temp,

@@ -2,7 +2,6 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import { useState } from "react";
 import "./Search.css";
 
-// eslint-disable-next-line react/prop-types
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState("");
 
