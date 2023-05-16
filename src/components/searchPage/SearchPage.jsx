@@ -1,6 +1,6 @@
 import Search from "../search/Search";
 import CurrentWeather from "../currentWeather/CurrentWeather";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./SearchPage.css";
 import WeatherForecast from "../WeatherForecast/WeatherForecast";

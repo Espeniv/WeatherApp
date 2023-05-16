@@ -85,6 +85,10 @@ const Search = ({ onSearchChange }) => {
       ...provided,
       color: "#fff",
     }),
+    loadingMessage: (provided) => ({
+      ...provided,
+      color: "#fff", // Set the loading text color to white
+    }),
     indicatorSeparator: (provided) => ({
       ...provided,
       display: "none",

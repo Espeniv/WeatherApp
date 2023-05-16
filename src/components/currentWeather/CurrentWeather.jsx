@@ -23,7 +23,6 @@ const CurrentWeather = ({
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setWeatherNow({
             temp: data.main.temp,
             description: data.weather[0].description,
@@ -34,7 +33,11 @@ const CurrentWeather = ({
   }, [locationData]);
 
   const handleOnStarClick = () => {
-    if (!favoriteLocations.includes(locationData)) {
+    if (
+      !favoriteLocations.some(
+        (location) => location.label == locationData.label
+      )
+    ) {
       const updatedLocations = [...favoriteLocations, locationData];
       setFavoriteLocations(updatedLocations);
       localStorage.setItem(
@@ -43,7 +46,7 @@ const CurrentWeather = ({
       );
     } else {
       const updatedLocations = favoriteLocations.filter(
-        (location) => location !== locationData
+        (location) => location.label != locationData.label
       );
       setFavoriteLocations(updatedLocations);
       localStorage.setItem(
