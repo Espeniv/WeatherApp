@@ -1,6 +1,7 @@
 import rain from "../assets/rain.png";
 import sun from "../assets/sun.png";
 import cloud from "../assets/cloud.png";
+import suncloud from "../assets/suncloud.png";
 
 export const getDateDay = () => {
   const today = new Date();
@@ -25,6 +26,9 @@ export const getIcon = (data) => {
   }
   if (data.description.includes("few") || data.description.includes("clear")) {
     return sun;
+  }
+  if (data.description.includes("scattered")) {
+    return suncloud;
   } else {
     return cloud;
   }

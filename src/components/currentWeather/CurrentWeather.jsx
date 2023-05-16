@@ -23,6 +23,7 @@ const CurrentWeather = ({
       )
         .then((res) => res.json())
         .then((data) => {
+          console.log(data);
           setWeatherNow({
             temp: data.main.temp,
             description: data.weather[0].description,
