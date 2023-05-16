@@ -53,7 +53,7 @@ const Search = ({ onSearchChange }) => {
       "&:hover": {
         borderColor: "transparent",
       },
-      border: "1px solid rgba(255, 255, 255, 0.3)",
+      border: "1px solid rgba(255, 255, 255, 0)",
       width: "100%",
     }),
     menu: (provided) => ({
@@ -84,6 +84,14 @@ const Search = ({ onSearchChange }) => {
     placeholder: (provided) => ({
       ...provided,
       color: "#fff",
+    }),
+    indicatorSeparator: (provided) => ({
+      ...provided,
+      display: "none",
+    }),
+    dropdownIndicator: (provided) => ({
+      ...provided,
+      display: "none",
     }),
   };
 
