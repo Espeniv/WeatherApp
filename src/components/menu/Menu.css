@@ -1,6 +1,6 @@
 .menu {
   position: fixed;
-  top: 20px;
+  top: -13px;
   left: 20px;
   z-index: 999;
   width: 52px;
@@ -57,7 +57,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 998; /* Ensure menu options are displayed below the menu */
+  z-index: 998;
   color: white;
 }
 

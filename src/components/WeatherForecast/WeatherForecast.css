@@ -11,6 +11,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 88.5%;
     color: #ffffff;
+    
   }
   
   .each-day {
@@ -18,7 +19,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 5rem;
+    height: 100px;
     padding-left: 3rem;
   }
   
@@ -61,4 +62,29 @@
     padding: 0%;
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .weather-forecast .temperature,
+  .weather-forecast .description,
+  .weather-forecast .date {
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+  }
+
+  .weather-forecast img {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+  }
+
+  .each-day {
+    padding-left: 0;
+  }
+
+  .weather-forecast-title {
+    margin-top: 30px;
+    margin-bottom: 10px
+  }
 }

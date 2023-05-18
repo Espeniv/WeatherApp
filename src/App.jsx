@@ -1,4 +1,5 @@
 import Menu from "./components/menu/Menu";
+import Footer from "./components/footer/Footer";
 import SearchPage from "./components/searchPage/SearchPage";
 import FavoritesPage from "./components/favoritesPage/FavoritesPage";
 import { Route, Routes } from "react-router-dom";
@@ -33,6 +34,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }
