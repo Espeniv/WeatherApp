@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p className="footer-text">
-        &copy; Copyright 2023, Made by Espen Iversen,{" "}
+        &copy; Copyright 2023, Espen Iversen,{" "}
         <a
           href="https://www.flaticon.com/free-icons/gradient"
           title="gradient icons"
