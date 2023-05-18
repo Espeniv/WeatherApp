@@ -1,7 +1,7 @@
 # Weather App
 
 This is a small weather app developed to freshen up my react and general front-end skills.
-The project can be viewed at [weather.espeniv.com](URL "weather.espeniv.com")
+The project can be viewed at <https://weather.espeniv.com>.
 
 
 
