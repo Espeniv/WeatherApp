@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="footer">
       <p className="footer-text">
         &copy; Copyright 2023, Espen Iversen,{" "}
-        <a href="https://www.flaticon.com/free-icons/" title="gradient icons">
+        <a href="https://www.flaticon.com/icons/" title="gradient icons">
           Icons created by jeremie robberini-neveu - flaticon
         </a>
       </p>
