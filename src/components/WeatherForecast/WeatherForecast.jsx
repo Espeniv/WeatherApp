@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {
   getDateDay,
   getDateMonth,
+  getWeekday,
   getIcon,
   kelvinToCelsius,
 } from "../../utils/utils.js";
@@ -46,7 +47,7 @@ const WeatherForecast = ({ locationData }) => {
         {weatherForecast.map((forecastData, index) => (
           <div key={index} className="weather-forecast">
             <div className="each-day">
-              <div className="date">{`${
+              <div className="date">{`${getWeekday(index)} ${
                 parseInt(getDateDay()) + (index + 1)
               }/${getDateMonth()}`}</div>
               <p>|</p>

@@ -5,6 +5,7 @@ import {
   getDateDay,
   getDateMonth,
   getIcon,
+  getWeekday,
   kelvinToCelsius,
 } from "../../utils/utils.js";
 import "./CurrentWeather.css";
@@ -82,7 +83,7 @@ const CurrentWeather = ({
           <div className="current-weather">
             <div className="infoContainer">
               <h1 className="today-text">{"Right now"}</h1>
-              <div className="date">{`${getDateDay()}/${getDateMonth()}`}</div>
+              <div className="date">{`${getWeekday()} ${getDateDay()}/${getDateMonth()}`}</div>
               <div className="temperature">
                 {Math.round(kelvinToCelsius(weatherNow.temp))}&deg;C
               </div>
