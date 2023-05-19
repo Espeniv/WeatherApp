@@ -47,7 +47,7 @@ const WeatherForecast = ({ locationData }) => {
         {weatherForecast.map((forecastData, index) => (
           <div key={index} className="weather-forecast">
             <div className="each-day">
-              <div className="date">{`${getWeekday(index)} ${
+              <div className="date">{`${getWeekday(index + 1)} ${
                 parseInt(getDateDay()) + (index + 1)
               }/${getDateMonth()}`}</div>
               <div className="seperator">|</div>
