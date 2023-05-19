@@ -50,13 +50,13 @@ const WeatherForecast = ({ locationData }) => {
               <div className="date">{`${getWeekday(index)} ${
                 parseInt(getDateDay()) + (index + 1)
               }/${getDateMonth()}`}</div>
-              <p>|</p>
+              <div className="seperator">|</div>
               <div className="temperature">
                 {Math.round(kelvinToCelsius(forecastData.temp))}&deg;C
               </div>
-              <p>|</p>
+              <div className="seperator">|</div>
               <div className="description">{forecastData.description}</div>
-              <p>|</p>
+              <div className="seperator">|</div>
               <img src={getIcon(forecastData)} alt="Weather Icon" />
             </div>
           </div>
