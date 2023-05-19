@@ -32,6 +32,14 @@ const Menu = () => {
         >
           <h3>Favorites</h3>
         </NavLink>
+        <NavLink
+          onClick={toggleMenu}
+          to="/about"
+          activeclassname="active-menu-option"
+          className="menu-option"
+        >
+          <h3>About</h3>
+        </NavLink>
       </div>
     </div>
   );

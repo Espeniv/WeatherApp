@@ -2,6 +2,7 @@ import Menu from "./components/menu/Menu";
 import Footer from "./components/footer/Footer";
 import SearchPage from "./components/searchPage/SearchPage";
 import FavoritesPage from "./components/favoritesPage/FavoritesPage";
+import AboutPage from "./components/aboutPage/AboutPage";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
@@ -33,6 +34,7 @@ function App() {
             />
           }
         />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />
     </div>
